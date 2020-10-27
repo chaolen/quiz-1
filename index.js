@@ -1,16 +1,16 @@
-const mainMenu = document.querySelector('.main-menu')
-const close = document.querySelector('.closeMenu')
-const open = document.querySelector('.openMenu')
+const hamburger = document.querySelector('#hamburger-icon')
+const nav = document.querySelector('#menu-bar')
+const exit = document.querySelector('#close-btn')
+const menu = document.querySelector('#menus')
 
-open.addEventListener('click', show)
-close.addEventListener('click', exit)
+hamburger.addEventListener('click', show)
+exit.addEventListener('click', close)
 
 function show() {
-    mainMenu.style.display = 'flex';
-    mainMenu.style.top = '0';
+    menu.style.display = 'flex'
+    menu.style.top = '0'
 }
 
-function exit() {
-    mainMenu.style.top = '-100%';
+function close() {
+    menu.style.display = 'none'
 }
-
