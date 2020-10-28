@@ -15,6 +15,7 @@ const homeBox = document.querySelector(".home-box")
 const questionBox = document.querySelector(".question-box")
 const resultBox = document.querySelector(".result-box")
 const totalScrore = document.querySelector(".total-score")
+const pic = document.querySelector("#pic2")
 
 
 let questionCounter = 0;
@@ -53,27 +54,31 @@ function close2() {
 
 const quiz = [
     {   
-        image:"image/5852cd7658215f0354495f6a.png",
+        image:"image/pic-1.png",
         q: 'who is this pokemon ?',
         options: ['naruto' , 'sasuke' , 'itachi' , 'pikachu'],
         answer:0
     },
     {
+        image:"image/pic-2.png",
         q: 'how many tails does kurama have ?',
         options: ['5' , '8' , '7' , '9'],
         answer:3
     },
     {
+        image:"image/pic-3.jpg",
         q: 'who is the strongest uchiha ?',
         options: ['Itach' , 'Sasuke' , 'Madara' , 'Obito'],
         answer:2
     },
     {
-        q: 'who is the father of shinobi ?',
-        options: ['tobirama' , 'something' , 'minato' , 'naruto'],
+        image:"image/pic-4.jpg",
+        q: 'who is the father of Naruto ?',
+        options: ['tobirama' , 'minato' , 'jiraya' , 'danzo'],
         answer:1
     },
     {
+        image:"image/pic-5.png",
         q: 'where did kakashis sharingan came from ?',
         options: ['obito' , 'danzo' , 'shishui' , 'sasuke'],
         answer:0
@@ -91,19 +96,26 @@ function setavailableQuestion(){
   }
 }
 
-function getNewQuestion(){
-  questionNumber.innerHTML = "Question " + (questionCounter ) + " of " + quiz.length
-  const questionIndex = availableQuestion[Math.floor(Math.random() * availableQuestion.length)]
-  currentQuestion = questionIndex;
-  questionText.innerHTML = currentQuestion.q;
-  const indexcurrent = availableQuestion.indexOf(questionIndex)
-  availableQuestion.splice(indexcurrent,1)
-  getoption()
-  
- 
 
-  score.innerHTML = "Score:" + (scorecounter)
-  questionCounter++
+function addPic(imageName) {
+    const insertImage = document.createElement('img')
+    insertImage.src = imageName
+    pic.appendChild(insertImage)
+}
+
+function getNewQuestion() {
+    questionNumber.innerHTML = "Question " + (questionCounter) + " of " + quiz.length
+    index = Math.floor(Math.random() * availableQuestion.length)
+    const questionIndex = availableQuestion[index]
+    currentQuestion = questionIndex;
+    questionText.innerHTML = currentQuestion.q;
+    addPic((currentQuestion.image))
+    const indexcurrent = availableQuestion.indexOf(questionIndex)
+    availableQuestion.splice(indexcurrent,1)
+    getoption()
+    score.innerHTML = "Score:" + (scorecounter)
+    questionCounter++
+    console.log(currentQuestion.q)
 
 }
 
@@ -166,7 +178,7 @@ function resetOption(){
 
 function next(){
     
-    if(questionCounter === quiz.length){
+    if(questionCounter === quiz.length + 1){
         quziOver()
     }else{
         getNewQuestion()
