@@ -15,24 +15,24 @@
         <div id="pic"><img id="logo" src="image/naruto.png" alt=""></div>
     </nav>
     
-    <div class="home-box custom-box hide">
+    <div class="home-box custom-box ">
         <h3>Instruction</h3>
         <p>Total Number Of Questions: <span class="total-question">10</span></p>
-         <button type="button" class="btn">Start</button>
+         <button type="button" class="btn" onclick="startQuiz()">Start</button>
    </div>
 
    
-   <div class="question-box custom-box">
+   <div class="question-box custom-box hide">
    <div class="question-number">     
     
    </div>
-   <div> <img src="photos/5852cd7658215f0354495f6a.png" alt=""></div>
+   <div> <img src="" alt=""></div>
    <div class="question-text">
       
    </div>
    <div class="option-container">
    </div>
-   <div class="result"></div>
+ 
    <div class="next-question-button">
        <button type="button" class="btn" onclick="next()">NEXT</button>
    </div>
@@ -41,7 +41,12 @@
    <div class="score">0</div>
    </div>
 
-
+   <div class="result-box custom-box hide">
+    <h3>Results</h3>
+    <div class="total-score">0</div>
+     <button type="button" class="btn" onclick="goToHome()">Home</button>
+     <button type="button" class="btn" onclick="tryAgain()">Try Again</button>
+</div>
 
 
 

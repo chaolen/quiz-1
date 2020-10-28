@@ -210,6 +210,44 @@ img {
     margin-bottom: 10px;
     cursor: pointer;
     text-transform: capitalize;
+    position: relative;
+    overflow: hidden;
+}
+
+.option.correct::before{
+   content: "correct";
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   height: 100%;
+   width: 100%;
+   background-color: green;
+   
+}
+
+.option.incorrect::before{
+    content: "Incorrect";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    vertical-align: bottom;
+    
+ }
+
+.correct{
+    color: white;
+}
+.incorrect{
+    color: white;
+}
+
+.option.already-answered{
+    pointer-events: none;
 }
 
 .score{
@@ -229,4 +267,8 @@ img {
     padding: 20px 0;
     margin: 0;
     text-align: center;
+}
+
+.result-box{
+    font-size: 40px;
 }
